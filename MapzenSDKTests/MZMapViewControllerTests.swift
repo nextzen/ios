@@ -28,8 +28,9 @@ class TestMapViewController: MZMapViewController {
 }
 
 class MockHTTPHandler: TGHttpHandler {
-  override open func downloadRequestAsync(_ url: String, completionHandler: @escaping TangramMap.TGDownloadCompletionHandler) {
+  override open func downloadRequestAsync(_ url: String, completionHandler: @escaping TGDownloadCompletionHandler) -> UInt {
     //We want Tangram to stay off the network in unit testing, so we no-op this to make certain
+    return UInt(0)
   }
 }
 
